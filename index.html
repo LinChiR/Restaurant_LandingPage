@@ -226,7 +226,7 @@
   <section class="container-fluid py-5 bg-light text-white" style="position: relative;">
     <div class="container">
       <div class="row text-md-dark">
-        <div class="col-md-7">
+        <div class="col-md-7" style="z-index: 5;">
           <h2>讓快樂持續發生</h2>
           <p>在每個機會裡，但現在這些亞洲父母來了，懷疑自己是否重要，到底你自己的感覺是什麼。</p>
           <dl class="row">
@@ -467,6 +467,18 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+      console.log('ready');
+      $('a[data-toggle="modal"][data-dismiss="modal"]').on('click',function(){
+        var target = $(this).data('target');
+        console.log(target);
+        $(target).on('shown.bs.modal',function(){
+          $('body').addClass('modal-open');
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
